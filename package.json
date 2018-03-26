@@ -1,0 +1,20 @@
+{
+  "name": "spoact",
+  "version": "1.0.0",
+  "description": "Sowftware landing page",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/orangeGoran/spoact.git"
+  },
+  "author": "Goran Tubic <mail.goran@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/orangeGoran/spoact/issues"
+  },
+  "homepage": "https://github.com/orangeGoran/spoact#readme"
+}
