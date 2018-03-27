@@ -1,277 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    	<!--
-    	Boxer Template
-    	http://www.templatemo.com/tm-446-boxer
-    	-->
-		<meta charset="utf-8">
-		<title>Spoact - Skupnostna psihiatrična oskrba pacientov</title>
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Aplikacija za vodenje evidenca podatkov skupnostne psihiatrične oskrbe oz psihiatričnega zdravljenja v skupnosti.">
+<head>
+	<!--
+	Boxer Template
+	http://www.templatemo.com/tm-446-boxer
+-->
+<meta charset="utf-8">
+<title>Spoact - Skupnostna psihiatrična oskrba pacientov</title>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Aplikacija za vodenje evidenca podatkov skupnostne psihiatrične oskrbe oz psihiatričnega zdravljenja v skupnosti.">
 
-		<link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALRrDf+0awv/tWsK/7RrDf/69O2HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC1awn/tGoH/7RqCf+0awz/+vTthwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtGsM/7RrDf+0aw3/tGsM//r07YcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/Pr3wvz59sr8+fbK/Pn2yrRrDP+0awz/tWsK/7VrCf/37+b//Pn2yv359cr8+fbKAAAAAAAAAAAAAAAAAAAAAMSIPPe1awn/tGsM/7RrDf+0aw3/tGsN/7RrDf+/gCv/tGsL/7RrDP+0aw3//fr3KAAAAAAAAAAAAAAAAAAAAAC6dBn38ubWzbRrDf+0awr/tWsK/7RrDf/KllH/tGsN/+TJpoK0awz/5cupzbVrCf8AAAAA/v7+aAAAAAAAAAAAunQa97RqCP+1awn/4sah9LVrCv+0agj/tWsK/7VrCf+0agf/9OncnbRrDf+1awn/AAAAAAAAAAAAAAAAAAAAALl0HPe1awr/tGoK/7RrDf/16tz/tWsK/7RrDP+0awz/tWsK/7RrC/+1awn/tWsJ/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtGsN/8qWUf+1awn/tGsL//r174cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALRrDf+0aw3/tGsM/7RqCP/69O2HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC0awz/tGsN/7RrDf+0awz/+vTthwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtGoI/7RrDf+0aw3/tWsK//r07YcAAAAAAAAAAAAAAAAAAAAA9vb2aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD8HwAA/B8AAPwfAADAAwAAwAcAAMADAADAAwAAwAMAAPwfAAD8HwAA/B8AAPwfAAD//wAA//8AAA==" rel="icon" type="image/x-icon" />
-		<!-- animate css -->
-		<link rel="stylesheet" href="css/animate.min.css">
-		<!-- bootstrap css -->
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<!-- font-awesome -->
-		<link rel="stylesheet" href="css/font-awesome.min.css">
-		<!-- google font -->
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
+<link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALRrDf+0awv/tWsK/7RrDf/69O2HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC1awn/tGoH/7RqCf+0awz/+vTthwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtGsM/7RrDf+0aw3/tGsM//r07YcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/Pr3wvz59sr8+fbK/Pn2yrRrDP+0awz/tWsK/7VrCf/37+b//Pn2yv359cr8+fbKAAAAAAAAAAAAAAAAAAAAAMSIPPe1awn/tGsM/7RrDf+0aw3/tGsN/7RrDf+/gCv/tGsL/7RrDP+0aw3//fr3KAAAAAAAAAAAAAAAAAAAAAC6dBn38ubWzbRrDf+0awr/tWsK/7RrDf/KllH/tGsN/+TJpoK0awz/5cupzbVrCf8AAAAA/v7+aAAAAAAAAAAAunQa97RqCP+1awn/4sah9LVrCv+0agj/tWsK/7VrCf+0agf/9OncnbRrDf+1awn/AAAAAAAAAAAAAAAAAAAAALl0HPe1awr/tGoK/7RrDf/16tz/tWsK/7RrDP+0awz/tWsK/7RrC/+1awn/tWsJ/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtGsN/8qWUf+1awn/tGsL//r174cAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALRrDf+0aw3/tGsM/7RqCP/69O2HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC0awz/tGsN/7RrDf+0awz/+vTthwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtGoI/7RrDf+0aw3/tWsK//r07YcAAAAAAAAAAAAAAAAAAAAA9vb2aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//8AAP//AAD8HwAA/B8AAPwfAADAAwAAwAcAAMADAADAAwAAwAMAAPwfAAD8HwAA/B8AAPwfAAD//wAA//8AAA==" rel="icon" type="image/x-icon" />
+<!-- animate css -->
+<link rel="stylesheet" href="css/animate.min.css">
+<!-- bootstrap css -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<!-- font-awesome -->
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<!-- google font -->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,700,800' rel='stylesheet' type='text/css'>
 
-		<!-- custom css -->
-		<link rel="stylesheet" href="css/templatemo-style.css">
+<!-- custom css -->
+<link rel="stylesheet" href="css/templatemo-style.css">
 
-	</head>
-	<body>
-		<!-- start preloader -->
-		<div class="preloader">
-			<div class="sk-spinner sk-spinner-rotating-plane"></div>
-    	 </div>
-		<!-- end preloader -->
-		<!-- start navigation -->
-		<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+</head>
+<body>
+	<!-- start preloader -->
+	<div class="preloader">
+		<div class="sk-spinner sk-spinner-rotating-plane"></div>
+	</div>
+	<!-- end preloader -->
+	<!-- start navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top templatemo-nav" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon icon-bar"></span>
+					<span class="icon icon-bar"></span>
+					<span class="icon icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">Spoact</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right text-uppercase">
+					<li><a href="#home">Domov</a></li>
+					<li><a href="#feature">Funkcije</a></li>
+					<li><a href="#pricing">Cenitev</a></li>
+					<li><a href="#download">Opis SPO/PZS</a></li>
+					<li><a href="#contact">Kontakt</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- end navigation -->
+	<!-- start home -->
+	<section id="home">
+		<div class="overlay">
 			<div class="container">
-				<div class="navbar-header">
-					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="icon icon-bar"></span>
-						<span class="icon icon-bar"></span>
-						<span class="icon icon-bar"></span>
-					</button>
-					<a href="#" class="navbar-brand">Spoact</a>
-				</div>
-				<div class="collapse navbar-collapse">
-					<ul class="nav navbar-nav navbar-right text-uppercase">
-						<li><a href="#home">Domov</a></li>
-						<li><a href="#feature">Funkcije</a></li>
-						<li><a href="#pricing">Cenitev</a></li>
-						<li><a href="#download">Opis SPO/PZS</a></li>
-						<li><a href="#contact">Kontakt</a></li>
-					</ul>
+				<div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
+						<h1 class="text-upper">Spoact - Skupnostna psihiatrična oskrba</h1>
+						<p class="tm-white">Spoact je spletno orodje namenjeno beleženju podatkov skupnostne psihiatrične oskrbe in ponujanjem povratnih informacij uporabnikom, kot je na primer letna statistika specifičnega pacienta. Tako za vas opravi analizo v realnem času.</p>
+						<img src="images/software-img1.png" class="img-responsive" alt="home img">
+					</div>
+					<div class="col-md-1"></div>
 				</div>
 			</div>
-		</nav>
-		<!-- end navigation -->
-		<!-- start home -->
-		<section id="home">
-			<div class="overlay">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-1"></div>
-						<div class="col-md-10 wow fadeIn" data-wow-delay="0.3s">
-							<h1 class="text-upper">Spoact - Skupnostna psihiatrična oskrba</h1>
-							<p class="tm-white">Spoact je spletno orodje namenjeno beleženju podatkov skupnostne psihiatrične oskrbe in ponujanjem povratnih informacij uporabnikom, kot je na primer letna statistika specifičnega pacienta. Tako za vas opravi analizo v realnem času.</p>
-							<img src="images/software-img1.png" class="img-responsive" alt="home img">
+		</div>
+	</section>
+	<!-- end home -->
+	<!-- start divider -->
+	<section id="divider">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+					<i class="fa fa-globe"></i>
+					<h3 class="text-uppercase">DOSTOPNOST</h3>
+					<p>Aplikacija je narejana dostopna ne glede na vašo lokacijo. Tako lahko na terenu pregladate podatke o pacintih ali urnik, kateremu sledite. Vse kar potrebujete je dostop do interneta. </p>
+				</div>
+				<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+					<i class="fa fa-laptop"></i>
+					<h3 class="text-uppercase">PRILAGODLJIVA POSTAVITEV</h3>
+					<p>Naša aplikacija deluje na vseh velikosti zaslona, od majhnih telefonov do velikih zunanjih zaslonov. Tako bo vaša uporabniška izkušnja vrhunska ne glede na lokacijo oziroma izbiro naprave. </p>
+				</div>
+				<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
+					<i class="fa fa-line-chart"></i>
+					<h3 class="text-uppercase">HITROST</h3>
+					<p>Neverjetno hitro ponujanje informacij različnih analiz nad podatki. Prav tako glede na vaše željemo dodamo nove funkcije, ki bi zagotovile vašo potrebo po preračunanih podatkih. </p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end divider -->
+
+	<!-- start feature -->
+	<section id="feature">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+					<h2 class="text-uppercase">Naše programske storitve</h2>
+					<p>Trenutno imamo X glavnih funkcij aplikacije za psihiatrično zdravljenje v skupnosti.</p>
+					<p><i class="fa fa-keyboard-o"></i>Vnašanje osnovnih podatkov pacientov.</p>
+					<p><i class="fa fa-credit-card"></i>Izdelava obravnav za vsakega pacienta.</p>
+					<p><i class="fa fa-stack-exchange"></i>Izdelava različnih storitev, kot so klici, obiski in podobno.</p>
+					<p><i class="fa fa-calendar"></i>Funkcija za vpogled v urnik.</p>
+					<p><i class="fa fa-line-chart"></i>Izdelava statistične analize nad podatki po vaših željah.</p>
+				</div>
+				<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+					<img src="images/software-img2.png" class="img-responsive" alt="feature img">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end feature -->
+
+	<!-- start feature1 -->
+	<section id="feature1">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+					<img src="images/software-img3.png" class="img-responsive" alt="feature img">
+				</div>
+				<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+					<h2 class="text-uppercase">Dodatne programske funkcije</h2>
+					<p>Poleg podanih osnovnih storitev spoact programa in naše podjetje poskrbi tudi za ostale podane točke.</p>
+					<p><i class="fa fa-user-secret"></i>Dostop dolimo le avtenticiranim osebami.</p>
+					<p><i class="fa fa-lock"></i>Poskrbimo za kriptirano in varno povezavo.</p>
+					<p><i class="fa fa-database"></i>Dnevno zagotavljamo varnostno kopijo podatkov.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- end feature1 -->
+
+	<!-- start pricing -->
+	<section id="pricing">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 wow bounceIn">
+					<h2 class="text-uppercase">Cenitev aplikacije</h2>
+				</div>
+				<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+					<div class="pricing text-uppercase">
+						<div class="pricing-title">
+							<h4>Osnovna aplikacija</h4>
+							<!-- <p>$11</p> -->
+							<!-- <small class="text-lowercase">monthly</small> -->
 						</div>
-						<div class="col-md-1"></div>
+						<ul>
+							<li>Vnos podatkov pacientov in storitev</li>
+							<li>Delovanje na tabličnih ali večjih zaslonih</li>
+							<li>Tiskanje podatkov</li>
+							<li>Podpora uporabnikom</li>
+						</ul>
+						<button onclick="location.href='#contact';" class="btn btn-primary text-uppercase">Kontaktirajte nas</button>
+					</div>
+				</div>
+				<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+					<div class="pricing active text-uppercase">
+						<div class="pricing-title">
+							<h4>Srednje funkcijska</h4>
+							<!-- <p>$22</p> -->
+							<!-- <small class="text-lowercase">monthly</small> -->
+						</div>
+						<ul>
+							<li>Vse točke iz osnovne aplikacije</li>
+							<li>Urnikov pogled</li>
+							<li>Ambulantni vnosi</li>
+							<li>Osnovna mesečna statistika</li>
+						</ul>
+						<button onclick="location.href='#contact';" class="btn btn-primary text-uppercase">Kontaktirajte nas</button>
+					</div>
+				</div>
+				<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
+					<div class="pricing text-uppercase">
+						<div class="pricing-title">
+							<h4>Napredna funkcijska</h4>
+							<!-- <p>$33</p> -->
+							<!-- <small class="text-lowercase">monthly</small> -->
+						</div>
+						<ul>
+							<li>Vse iz srednje funkcijske</li>
+							<li>Analiza podatkov po vaši izbiri</li>
+							<li>Tiskanje analitičnih podatkov</li>
+							<li>Dodatni moduli po meri</li>
+						</ul>
+						<button onclick="location.href='#contact';" class="btn btn-primary text-uppercase">Kontaktirajte nas</button>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- end home -->
-		<!-- start divider -->
-		<section id="divider">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
-						<i class="fa fa-globe"></i>
-						<h3 class="text-uppercase">DOSTOPNOST</h3>
-						<p>Aplikacija je narejana dostopna ne glede na vašo lokacijo. Tako lahko na terenu pregladate podatke o pacintih ali urnik, kateremu sledite. Vse kar potrebujete je dostop do interneta. </p>
-					</div>
-					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
-						<i class="fa fa-laptop"></i>
-						<h3 class="text-uppercase">PRILAGODLJIVA POSTAVITEV</h3>
-						<p>Naša aplikacija deluje na vseh velikosti zaslona, od majhnih telefonov do velikih zunanjih zaslonov. Tako bo vaša uporabniška izkušnja vrhunska ne glede na lokacijo oziroma izbiro naprave. </p>
-					</div>
-					<div class="col-md-4 wow fadeInUp templatemo-box" data-wow-delay="0.3s">
-						<i class="fa fa-line-chart"></i>
-						<h3 class="text-uppercase">HITROST</h3>
-						<p>Neverjetno hitro ponujanje informacij različnih analiz nad podatki. Prav tako glede na vaše željemo dodamo nove funkcije, ki bi zagotovile vašo potrebo po preračunanih podatkih. </p>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- end divider -->
+		</div>
+	</section>
+	<!-- end pricing -->
 
-		<!-- start feature -->
-		<section id="feature">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
-						<h2 class="text-uppercase">Naše programske storitve</h2>
-						<p>Trenutno imamo X glavnih funkcij aplikacije za psihiatrično zdravljenje v skupnosti.</p>
-						<p><i class="fa fa-keyboard-o"></i>Vnašanje osnovnih podatkov pacientov.</p>
-						<p><i class="fa fa-credit-card"></i>Izdelava obravnav za vsakega pacienta.</p>
-						<p><i class="fa fa-stack-exchange"></i>Izdelava različnih storitev, kot so klici, obiski in podobno.</p>
-						<p><i class="fa fa-calendar"></i>Funkcija za vpogled v urnik.</p>
-						<p><i class="fa fa-line-chart"></i>Izdelava statistične analize nad podatki po vaših željah.</p>
-					</div>
-					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
-						<img src="images/software-img2.png" class="img-responsive" alt="feature img">
-					</div>
+	<!-- start download -->
+	<section id="download">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
+					<h2 class="text-uppercase">Skupnostna psihiatrična obravnava?</h2>
+					<p>Skupnostna psihiatrična obravnava (SPO) ali psihiatrično zdravljenje v skupnosti (PZS) je program spremljanja dolgotrajnih in zahtevnih psihiatričnih pacientov, ki potrebujejo podporo v skupnosti. Nudi jim prilagojeno podporo pri obvladovanju bolezni, vsakdanjo pomoč pri reševanju običajnih življenjskih težav, podporo pri zaposlovanju in drugo. Izobraževanje družin in širjenje socialne mreže ključno vpliva tudi na pacientovo ožje in širše okolje.</p>
+					<!-- <button class="btn btn-primary text-uppercase"><i class="fa fa-download"></i> Download</button> -->
+				</div>
+				<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
+					<img src="images/software-img1.png" class="img-responsive" alt="feature img">
 				</div>
 			</div>
-		</section>
-		<!-- end feature -->
+		</div>
+	</section>
+	<!-- end download -->
 
-		<!-- start feature1 -->
-		<section id="feature1">
+	<!-- start contact -->
+
+	<section id="contact">
+		<div class="overlay">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-						<img src="images/software-img3.png" class="img-responsive" alt="feature img">
+						<h2 class="text-uppercase">Kontaktirajte nas</h2>
+						<p>Če opravljate SPO in bi želeli nadgraditi vaš sistem oziroma ga pohitriti, nas kontaktirajte preko spodnjih informacij.Trenutno nam zaupajo člani PB Idrija. Postanite še vi uporabnik Spoact aplikacije. </p>
+						<address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+							<p itemprop="streetAddress"><i class="fa fa-map-marker"></i>Obzidna ulica 1, Koper, Slovenija</p>
+							<p itemprop="telephone"><a href="tel:+38630346737" style="color:inherit; text-decoration:inherit"><i class="fa fa-phone"></i> +385 (30) 346 737</a></p>
+							<p itemprop="email"><i class="fa fa-envelope-o"></i> mail.goran96@gmail.com</p>
+						</address>
 					</div>
 					<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-						<h2 class="text-uppercase">Dodatne programske funkcije</h2>
-						<p>Poleg podanih osnovnih storitev spoact programa in naše podjetje poskrbi tudi za ostale podane točke.</p>
-						<p><i class="fa fa-user-secret"></i>Dostop dolimo le avtenticiranim osebami.</p>
-						<p><i class="fa fa-lock"></i>Poskrbimo za kriptirano in varno povezavo.</p>
-						<p><i class="fa fa-database"></i>Dnevno zagotavljamo varnostno kopijo podatkov.</p>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- end feature1 -->
-
-		<!-- start pricing -->
-		<section id="pricing">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 wow bounceIn">
-						<h2 class="text-uppercase">Cenitev aplikacije</h2>
-					</div>
-					<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
-						<div class="pricing text-uppercase">
-							<div class="pricing-title">
-								<h4>Osnovna aplikacija</h4>
-								<!-- <p>$11</p> -->
-								<!-- <small class="text-lowercase">monthly</small> -->
-							</div>
-							<ul>
-								<li>Vnos podatkov pacientov in storitev</li>
-								<li>Delovanje na tabličnih ali večjih zaslonih</li>
-								<li>Tiskanje podatkov</li>
-								<li>Podpora uporabnikom</li>
-							</ul>
-							<button onclick="location.href='#contact';" class="btn btn-primary text-uppercase">Kontaktirajte nas</button>
-						</div>
-					</div>
-					<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
-						<div class="pricing active text-uppercase">
-							<div class="pricing-title">
-								<h4>Srednje funkcijska</h4>
-								<!-- <p>$22</p> -->
-								<!-- <small class="text-lowercase">monthly</small> -->
-							</div>
-							<ul>
-								<li>Vse točke iz osnovne aplikacije</li>
-								<li>Urnikov pogled</li>
-								<li>Ambulantni vnosi</li>
-								<li>Osnovna mesečna statistika</li>
-							</ul>
-							<button onclick="location.href='#contact';" class="btn btn-primary text-uppercase">Kontaktirajte nas</button>
-						</div>
-					</div>
-					<div class="col-md-4 wow fadeIn" data-wow-delay="0.6s">
-						<div class="pricing text-uppercase">
-							<div class="pricing-title">
-								<h4>Napredna funkcijska</h4>
-								<!-- <p>$33</p> -->
-								<!-- <small class="text-lowercase">monthly</small> -->
-							</div>
-							<ul>
-								<li>Vse iz srednje funkcijske</li>
-								<li>Analiza podatkov po vaši izbiri</li>
-								<li>Tiskanje analitičnih podatkov</li>
-								<li>Dodatni moduli po meri</li>
-							</ul>
-							<button onclick="location.href='#contact';" class="btn btn-primary text-uppercase">Kontaktirajte nas</button>
+						<div class="contact-form">
+							<form id="email_form" action="/sendMessage" target="dummyframe" method="post">
+								<div class="col-md-6">
+									<input type="text" name="name" class="form-control" placeholder="Vaše ime">
+								</div>
+								<div class="col-md-6">
+									<input type="email" name="email" class="form-control" placeholder="Elektronski naslov">
+								</div>
+								<div class="col-md-12">
+									<input type="text" name="subject" class="form-control" placeholder="Zadeva">
+								</div>
+								<div class="col-md-12">
+									<textarea class="form-control" name="message" placeholder="Sporočilo" rows="4"></textarea>
+								</div>
+								<div class="col-md-12">
+									*Vaš elektronski naslov bo uporabljen izključno za naš odgovor na vaše sporočilo.
+								</div>
+								<div class="col-md-8">
+									<input type="submit" class="form-control text-uppercase" value="Pošlji">
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
-		</section>
-		<!-- end pricing -->
+		</div>
+	</section>
+	<!-- end contact -->
 
-		<!-- start download -->
-		<section id="download">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6 wow fadeInLeft" data-wow-delay="0.6s">
-						<h2 class="text-uppercase">Skupnostna psihiatrična obravnava?</h2>
-						<p>Skupnostna psihiatrična obravnava (SPO) ali psihiatrično zdravljenje v skupnosti (PZS) je program spremljanja dolgotrajnih in zahtevnih psihiatričnih pacientov, ki potrebujejo podporo v skupnosti. Nudi jim prilagojeno podporo pri obvladovanju bolezni, vsakdanjo pomoč pri reševanju običajnih življenjskih težav, podporo pri zaposlovanju in drugo. Izobraževanje družin in širjenje socialne mreže ključno vpliva tudi na pacientovo ožje in širše okolje.</p>
-						<!-- <button class="btn btn-primary text-uppercase"><i class="fa fa-download"></i> Download</button> -->
-					</div>
-					<div class="col-md-6 wow fadeInRight" data-wow-delay="0.6s">
-						<img src="images/software-img1.png" class="img-responsive" alt="feature img">
-					</div>
-				</div>
+	<!-- start footer -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				Predloga pridobljena iz <a rel="nofollow" href="http://www.facebook.com/templatemo" target="_parent">templatemo</a>. Dokončno izdelal <a rel="nofollow" href="https://github.com/orangeGoran" target="_parent">orangeGoran</a>.
+				<p itemscope="" itemtype="http://schema.org/LocalBusiness">Vse pravice pridržane © 2018 <span itemprop="name">Spoact</span></p>
 			</div>
-		</section>
-		<!-- end download -->
+		</div>
+	</footer>
+	<!-- end footer -->
 
-		<!-- start contact -->
-
-		<section id="contact">
-			<div class="overlay">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-							<h2 class="text-uppercase">Kontaktirajte nas</h2>
-							<p>Če opravljate SPO in bi želeli nadgraditi vaš sistem oz pohitriti, nas kontaktirajte preko spodnjih informacij.Trenutno nam zaupajo člani PB Idrija. Postanite še vi uporabnik Spoact aplikacije. </p>
-							<address itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
-								<p itemprop="streetAddress"><i class="fa fa-map-marker"></i>Obzidna ulica 1, Koper, Slovenija</p>
-								<p itemprop="telephone"><a href="tel:+38630346737" style="color:inherit; text-decoration:inherit"><i class="fa fa-phone"></i> +385 (30) 346 737</a></p>
-								<p itemprop="email"><i class="fa fa-envelope-o"></i> mail.goran96@gmail.com</p>
-							</address>
-						</div>
-						<div class="col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-							<div class="contact-form">
-								<form action="#" method="post">
-									<div class="col-md-6">
-										<input type="text" class="form-control" placeholder="Polno imo">
-									</div>
-									<div class="col-md-6">
-										<input type="email" class="form-control" placeholder="Elektronski naslov">
-									</div>
-									<div class="col-md-12">
-										<input type="text" class="form-control" placeholder="Zadeva">
-									</div>
-									<div class="col-md-12">
-										<textarea class="form-control" placeholder="Sporočilo" rows="4"></textarea>
-									</div>
-									<div class="col-md-12">
-										*Vaš email naslov bo uporabljen izključno za naš odgovor na vaše sporočilo.
-									</div>
-									<div class="col-md-8">
-										<input type="submit" class="form-control text-uppercase" value="Pošlji">
-									</div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- end contact -->
-
-		<!-- start footer -->
-		<footer>
-			<div class="container">
-				<div class="row">
-					Predloga pridobljena iz <a rel="nofollow" href="http://www.facebook.com/templatemo" target="_parent">templatemo</a>. Dokončno izdelal <a rel="nofollow" href="https://github.com/orangeGoran" target="_parent">orangeGoran</a>.
-					<p itemscope="" itemtype="http://schema.org/LocalBusiness">Vse pravice pridržane © 2018 <span itemprop="name">Spoact</span></p>
-				</div>
-			</div>
-		</footer>
-		<!-- end footer -->
-
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/wow.min.js"></script>
-		<script src="js/jquery.singlePageNav.min.js"></script>
-		<script src="js/custom.js"></script>
-	</body>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/jquery.singlePageNav.min.js"></script>
+	<script src="js/custom.js"></script>
+	<iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+</body>
+<script type="text/javascript">
+	$("#email_form").submit(function( event ) {
+		var data = {
+			'name': $('input[name=name]').val(),
+			'email': $('input[name=email]').val(),
+			'subject': $('input[name=subject]').val(),
+			'message': $('textarea[name=message]').val()
+		};
+		console.log(data)
+		$.post("/sendMessage", data).done(function( data ) {
+			alert("Email uspešno poslan. V kratkem času vam odgovorimo na vaše sporočilo");
+		}).fail(function(xhr, status, error) {
+        console.log("errr")
+				console.error(error);
+    });
+		event.preventDefault();
+	});
+</script>
 </html>

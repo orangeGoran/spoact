@@ -1,0 +1,14 @@
+{
+  "db_url": "",
+  "db_name": "",
+  "mailer_config" : {
+    "name": "",
+    "email": "",
+    "pass": "",
+    "host": "",
+    "port": "",
+    "secure": ""
+  },
+  "serverDomainName": "",
+  "recipientEmails": ""
+}
