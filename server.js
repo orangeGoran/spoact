@@ -31,9 +31,10 @@ let transporter = nodemailer.createTransport({
   secure: config.mailer_config.secure, // true for 465, false for other ports
   auth: {
     user: config.mailer_config.email, // generated ethereal user
-    pass: config.mailer_config.password // generated ethereal password
+    pass: config.mailer_config.pass // generated ethereal password
   }
 });
+
 
 app.get('/emailWasRead/:id', (req,res) => {
   EmailModel.findByIdAndUpdate(mongoose.Types.ObjectId(req.params.id), { $set: { delivered: true }}, { new: true }, function (err, document) {
@@ -66,7 +67,7 @@ app.post('/sendMessage', (req,res) => {
 
       let mailOptions = {
         from: config.mailer_config.name + ' <' + config.mailer_config.email +'>', // sender address
-        to: config.mailer_config.recipientEmails,
+        to: config.recipientEmails,
         subject: '★ <' + data.email + '> ★ ' + data.subject, // Subject line
         text: data.message, // plain text body
         html: '<span>' + data.message.replace(/\n/g, "<br />") +'</span><br><br><hr>Email was read (please confirm at): ' + config.serverDomainName + '/emailWasRead/' + newData._id
