@@ -5,6 +5,8 @@ var mongoose = require('mongoose');
 var moment = require('moment')
 var EmailModel = require('./backend/models/email').EmailsModel
 
+var request = require('request')
+
 var config = require('./backend/config.json')
 console.log("START: configuration file from: ./backend/config.json");
 console.log();
@@ -51,37 +53,44 @@ app.get('/emailWasRead/:id', (req,res) => {
 })
 
 app.post('/sendMessage', (req,res) => {
+  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   var data = {
     name: req.body.name,
     email: req.body.email,
     subject: req.body.subject,
     message: req.body.message,
     isRead: false,
-    dateAdded: moment().format()
+    dateAdded: moment().format(),
+  }
+
+  if(!data.name || data.name.length == 0 || !data.email || data.email.length == 0 || !data.message || data.message.length == 0 || !data.subject || data.subject.length == 0) {
+    res.status(406).send({message: "Wrong inputs!"})
+    return;
   }
 
   try {
-    let newInsert = new EmailModel(data)
-    newInsert.save().then((newData) => {
-      res.send()
+    // res.status(406).send({message: "Something is wrong!"})
+    // return;
+    request.post({
+      url:'https://www.google.com/recaptcha/api/siteverify',
+      form: {
+        secret:config.recaptchaSecret,
+        response:req.body.captchaKey
+      }
+    }, function(err,httpResponse,body){
+      body = JSON.parse(body)
 
-      let mailOptions = {
-        from: config.mailer_config.name + ' <' + config.mailer_config.email +'>', // sender address
-        to: config.recipientEmails,
-        subject: '★ <' + data.email + '> ★ ' + data.subject, // Subject line
-        text: data.message, // plain text body
-        html: '<span>' + data.message.replace(/\n/g, "<br />") +'</span><br><br><hr>Email was read (please confirm at): ' + config.serverDomainName + '/emailWasRead/' + newData._id
-      };
-
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          console.log("ERROR: ")
-          console.log(error);
-        }else {
-          console.log('Message sent: %s', info.messageId);
-        }
-      });
-    });
+      if(body.success) {
+        let newInsert = new EmailModel(data)
+        newInsert.save().then((newData) => {
+          data._id = newData._id
+          sendEmail(data)
+          res.send()
+        });
+      }else {
+        res.status(406).send({message: "Something is wrong!"})
+      }
+    })
 
   } catch (err) {
     console.log("error", err)
@@ -89,6 +98,24 @@ app.post('/sendMessage', (req,res) => {
   }
 })
 
+function sendEmail(data) {
+  let mailOptions = {
+    from: config.mailer_config.name + ' <' + config.mailer_config.email +'>', // sender address
+    to: config.recipientEmails,
+    subject: '★ <' + data.email + '> ★ ' + data.subject, // Subject line
+    text: data.message, // plain text body
+    html: '<span>' + data.message.replace(/\n/g, "<br />") +'</span><br><br><hr>Email was read (please confirm at): ' + config.serverDomainName + '/emailWasRead/' + data._id
+  };
+
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      console.log("ERROR: ")
+      console.log(error);
+    }else {
+      console.log('Message sent: %s', info.messageId);
+    }
+  });
+}
 app.listen(app.get('port'), () =>{
   console.log('App listening on port ' + app.get('port'))
 })
