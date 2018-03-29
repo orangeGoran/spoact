@@ -10,5 +10,6 @@
     "secure": ""
   },
   "serverDomainName": "",
-  "recipientEmails": ""
+  "recipientEmails": "",
+  "recaptchaSecret": ""
 }
