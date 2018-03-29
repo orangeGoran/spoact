@@ -1,5 +1,6 @@
 # spoact.si
-### Software landing page for webpage, which was made for data menagment for psichiatrists who works on ACT project in slovenia. 
+
+Software landing page for webpage, which was made for data menagment for psichiatrists who works on ACT project in slovenia. 
 ---
 Install addition software:
  - npm & nodeJs,
