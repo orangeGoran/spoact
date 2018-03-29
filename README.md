@@ -1,6 +1,7 @@
 # spoact.si
-Software landing page for webpage, which was made for data menagment for psichiatrists who works on ACT project in slovenia.
 ---
+Software landing page for webpage, which was made for data menagment for psichiatrists who works on european ACT project in slovenia.
+
 Requirements:
  - npm & nodeJs,
  - mongodb.
