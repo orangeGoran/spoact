@@ -4,6 +4,7 @@ var nodemailer = require('nodemailer');
 var mongoose = require('mongoose');
 var moment = require('moment')
 var EmailModel = require('./backend/models/email').EmailsModel
+var path    = require("path");
 
 var request = require('request')
 
@@ -50,6 +51,10 @@ app.get('/emailWasRead/:id', (req,res) => {
     }
     res.send(data);
   });
+})
+
+app.get('/spo', (req, res) => {
+  res.sendFile(path.join(__dirname+'/frontend/spo.html'))
 })
 
 app.post('/sendMessage', (req,res) => {
