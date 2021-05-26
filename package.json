@@ -22,7 +22,7 @@
     "express": "^4.16.3",
     "moment": "^2.21.0",
     "mongoose": "^5.0.11",
-    "nodemailer": "^4.6.3",
+    "nodemailer": "^6.4.16",
     "pug": "^2.0.3",
     "request": "^2.85.0"
   }
